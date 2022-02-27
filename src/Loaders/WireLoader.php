@@ -68,7 +68,7 @@ class WireLoader implements \Latte\Loader
         $templateDir = pathinfo($referringDir . $name, PATHINFO_DIRNAME);
 
         if (!is_dir($templateDir)) {
-            echo "fix: $name for $templateDir\n";
+//            echo "fix: $name for $templateDir\n";
             return $name;
         }
 
