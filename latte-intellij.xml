@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE latte PUBLIC "-//LATTE//Latte plugin XML V0.0.1//EN" ".idea/intellij-latte/xmlSources/Latte.dtd">
+<latte version="1" vendor="hyqo/wire">
+    <tags>
+        <tag name="w-state" type="ATTR_ONLY">
+            <arguments>
+                <argument types="PHP_EXPRESSION" validType="string"
+                          name="JSON5 string" required="true" repeatable="false"/>
+            </arguments>
+        </tag>
+        <tag name="w-class" type="ATTR_ONLY">
+            <arguments>
+                <argument types="PHP_CONDITION" validType="string"
+                          name="condition" required="true" repeatable="true"/>
+            </arguments>
+        </tag>
+        <tag name="w-visible" type="ATTR_ONLY">
+            <arguments>
+                <argument types="PHP_CONDITION" validType="string"
+                          name="condition" required="true" repeatable="true"/>
+            </arguments>
+        </tag>
+        <tag name="w-behavior" type="ATTR_ONLY">
+            <arguments>
+                <argument types="PHP_CONDITION" validType="string"
+                          name="condition" required="true" repeatable="true"/>
+            </arguments>
+        </tag>
+        <tag name="w-model" type="ATTR_ONLY">
+            <arguments>
+                <argument types="PHP_CONDITION" validType="string"
+                          name="condition" required="true" repeatable="true"/>
+            </arguments>
+        </tag>
+        <tag name="w-options" type="ATTR_ONLY">
+            <arguments>
+                <argument types="PHP_CONDITION" validType="string"
+                          name="condition" required="true" repeatable="true"/>
+            </arguments>
+        </tag>
+        <tag name="w-text" type="ATTR_ONLY">
+            <arguments>
+                <argument types="PHP_CONDITION" validType="string"
+                          name="condition" required="true" repeatable="true"/>
+            </arguments>
+        </tag>
+        <tag name="w-click" type="ATTR_ONLY">
+            <arguments>
+                <argument types="BLOCK" validType="string"
+                          name="condition" required="true" repeatable="true"/>
+            </arguments>
+        </tag>
+    </tags>
+</latte>

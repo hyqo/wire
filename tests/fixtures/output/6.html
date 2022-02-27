@@ -1,0 +1,34 @@
+
+<a href="/" data-wire="{&quot;body&quot;:{&quot;foo&quot;:&quot;bar&quot;},&quot;click&quot;:&quot;this.state(&#039;foo&#039;); app.state(&#039;bar&#039;)&quot;,&quot;behavior&quot;:&quot;fetch&quot;}">click</a>
+
+<div>
+    <span data-wire="{&quot;class&quot;:[[&quot;this&quot;,&quot;foo&quot;,&quot;foo&quot;,&quot;&quot;,true]]}"></span>
+</div>
+
+<form data-wire="{&quot;state&quot;:{&quot;username&quot;:&quot;Oleg&quot;},&quot;behavior&quot;:&quot;form&quot;}">
+    <p data-wire="{&quot;text&quot;:[&quot;this&quot;,&quot;username2&quot;]}"></p>
+    <input style="" data-wire="{&quot;state&quot;:[],&quot;visible&quot;:[[[&quot;parent&quot;,&quot;foo&quot;]]],&quot;behavior&quot;:&quot;form.field&quot;,&quot;class&quot;:[[&quot;this&quot;,&quot;invalid&quot;,&quot;invalid&quot;]]}">
+    <button data-wire="{&quot;behavior&quot;:&quot;form.button&quot;,&quot;class&quot;:[[&quot;this&quot;,&quot;running&quot;,&quot;running&quot;]]}"></button>
+</form>
+
+sub 123
+<form data-wire="{&quot;state&quot;:[],&quot;behavior&quot;:&quot;form&quot;}">
+    <select data-wire="{&quot;state&quot;:[],&quot;visible&quot;:[[[&quot;parent&quot;,&quot;foo&quot;],[&quot;#dsa&quot;,&quot;menu&quot;]],true],&quot;behavior&quot;:&quot;form.field&quot;,&quot;class&quot;:[[&quot;this&quot;,&quot;invalid&quot;,&quot;invalid&quot;]]}"></select>
+    <div data-wire="{&quot;model&quot;:&quot;shop&quot;}"></div>
+</form>
+sub 123
+<div data-html="dsa" data-wire="{&quot;state&quot;:{&quot;foo&quot;:&quot;bar&quot;,&quot;another&quot;:true},&quot;visible&quot;:[[[&quot;app&quot;,&quot;open_side&quot;]],true],&quot;class&quot;:[[&quot;this&quot;,&quot;foo&quot;,&quot;button--test&quot;,&quot;!&quot;],[&quot;app&quot;,&quot;menu&quot;,&quot;button--menu&quot;,&quot;&quot;,true],[&quot;this&quot;,&quot;another&quot;,&quot;button--another&quot;,&quot;!&quot;]]}" class="button">
+    ds
+    <p>
+        <span style="font-size: 10px" data-wire="{&quot;visible&quot;:[[[&quot;this&quot;,&quot;foo&quot;,&quot;!&quot;],[&quot;this&quot;,&quot;another&quot;],[&quot;this&quot;,&quot;foo&quot;]]],&quot;class&quot;:[[&quot;this&quot;,&quot;foo&quot;,&quot;foo&quot;]]}" class="foo">text</span>
+    </p>
+</div>
+
+<ul class="menu" data-wire="{&quot;state&quot;:{&quot;show&quot;:false}}">
+    <li data-wire="{&quot;class&quot;:[[&quot;this&quot;,&quot;show&quot;,&quot;show&quot;]]}">
+        <a title="" href="href-1">caption-1</a>
+    </li>
+    <li data-wire="{&quot;class&quot;:[[&quot;this&quot;,&quot;show&quot;,&quot;show&quot;]]}">
+        <a title="" href="href-2">caption-2</a>
+    </li>
+</ul>

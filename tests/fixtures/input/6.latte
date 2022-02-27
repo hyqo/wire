@@ -1,0 +1,36 @@
+{do $menu = [
+['href'=>'href-1','caption'=>'caption-1', 'is'=>true],
+['href'=>'href-2','caption'=>'caption-2'],
+]}
+
+<a href="/"
+   onclick="this.state('foo'); app.state('bar')"
+        n:w-behavior="fetch" n:w-options="body: [foo: bar]">click</a>
+
+<div>
+    <span n:w-class=".foo?"></span>
+</div>
+
+<form n:w-behavior="form" n:w-state="username: 'Oleg'">
+    <p n:w-text=".username2"></p>
+    <input n:w-behavior="form.field" n:w-visible="parent.foo"/>
+    <button n:w-behavior="form.button"></button>
+</form>
+
+{include '/sub/sub/2'}
+
+{include 'sub/1'}
+
+<div data-html="dsa"
+     class="button" n:w-class="!.foo?--test, app.menu?, !.another?" n:w-visible="app.open_side" n:w-state="foo: 'bar', another: true">
+    ds
+    <p>
+        <span n:w-class="parent.state?, .foo?" n:w-visible="!.foo, .another, .foo" style="font-size: 10px">text</span>
+    </p>
+</div>
+
+<ul class="menu" n:if="count($menu) > 1" n:w-state="show: false">
+    <li n:foreach="$menu as $item" n:w-class=".show?">
+        <a title="" n:attr="href: $item['href']">{$item['caption']}</a>
+    </li>
+</ul>

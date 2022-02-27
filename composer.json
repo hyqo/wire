@@ -1,5 +1,5 @@
 {
-    "name": "hyqo/",
+    "name": "hyqo/wire",
     "description": "",
     "keywords": [
     ],
@@ -11,19 +11,33 @@
         }
     ],
     "require": {
-        "php": ">=8.0"
+        "php": ">=7.2",
+        "hyqo/parse-js-object": "^1.1",
+        "hyqo/uuid": "^1.0",
+        "hyqo/string": "^2.7",
+        "hyqo/cache": "0.4.0",
+        "latte/latte": "^2.0",
+        "ext-dom": "*",
+        "ext-libxml": "*",
+        "ext-json": "*"
+    },
+    "config": {
+        "sort-packages": true
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.0"
+        "phpunit/phpunit": "^8.5"
     },
     "autoload": {
         "psr-4": {
-            "Hyqo\\": "src"
-        }
+            "Hyqo\\Wire\\": "src"
+        },
+        "files": [
+            "src/functions.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
-            "Hyqo\\\\Test\\": "tests"
+            "Hyqo\\Wire\\Test\\": "tests"
         }
     }
 }
