@@ -18,6 +18,8 @@ class Compiler
 
     public static function preprocess(string $string): string
     {
+        $string = preg_replace(HtmlEntities::wrapRegex(), '&_$1_;', $string);
+
         $document = self::loadDocument('<wrap>' . $string . '</wrap>');
 
         $body = $document->getElementsByTagName('body')->item(0);
@@ -36,6 +38,8 @@ class Compiler
             $required .= "{do Hyqo\\Wire\\Template::addRequiredModel('$value')}\n";
         }
 
+        $result = preg_replace(HtmlEntities::unwrapRegex(), '&$1;', $result);
+
         return $required . $result;
     }
 
@@ -43,7 +47,7 @@ class Compiler
     {
         $doc = new \DOMDocument();
         libxml_use_internal_errors(true);
-        $doc->loadHTML($content);
+        $doc->loadHTML('<?xml encoding="UTF-8">' . $content);
         libxml_clear_errors();
 
         return $doc;

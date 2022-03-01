@@ -63,7 +63,7 @@ class WVisible extends \Hyqo\Wire\Part\Directive
                 foreach ($conditions as [$target, $state, $comparison, $stateVar]) {
                     if ($target === 'this' || $target === 'parent') {
                         $backendConditions[] = sprintf(
-                            '%2$s(bool)(%1$s[\'state\'][\'%3$s\'] ?? null)',
+                            'false === %2$s(bool)(%1$s[\'state\'][\'%3$s\'] ?? null)',
                             $stateVar,
                             $comparison,
                             $state

@@ -21,6 +21,9 @@ class Utils
     public static function addStyle(string $string, string $key, string $value): string
     {
         $styles = explode(';', $string);
+        $styles = array_filter($styles, static function (string $style): bool {
+            return trim($style);
+        });
         $styles[] = sprintf('%s: %s', $key, $value);
 
         return implode('; ', $styles);

@@ -34,6 +34,8 @@ class TemplateTest extends TestCase
     {
         $compiled = render_template($name);
 
+//        file_put_contents(__DIR__ . '/' . $name . '.html', $compiled);
+
         $this->assertEquals(rtrim($output), $compiled);
     }
 

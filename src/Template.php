@@ -106,7 +106,11 @@ PHP;
         );
 
         $set->addMacro('wire-state', null, null, function (Latte\MacroNode $node, Latte\PhpWriter $writer) {
-            return $writer->write($node->htmlNode->macroAttrs['wire-var'] . '[\'state\'] = %node.array');
+            if ($node->args) {
+                return $writer->write($node->htmlNode->macroAttrs['wire-var'] . '[\'state\'] = %node.array');
+            }
+
+            return '';
         });
 
         $set->addMacro('wire-init', null, null, function (Latte\MacroNode $node, Latte\PhpWriter $writer) {
