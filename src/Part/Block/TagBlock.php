@@ -326,6 +326,11 @@ class TagBlock extends Block
 //            $this->setAttribute('n:wire-state-var', $this->wire->statedId, 1);
         }
 
+        if ($this->wire->isStateful) {
+            $this->setAttribute('data-wire-stateful', null, 999);
+//            $this->setAttribute('n:wire-state-var', $this->wire->statedId, 1);
+        }
+
 //        if ($wrappedWire = (string)$this->wire) {
 //            $this->setAttribute('data-wire', $wrappedWire);
 //        }
