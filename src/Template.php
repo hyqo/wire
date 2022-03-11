@@ -97,9 +97,9 @@ if(array_reduce(
     {$writer->write('%node.array')},
     function(\$result, \$condition){return \$result && \$condition;}, true
     )){
-        echo ' style="'.\Hyqo\Wire\Utils::addStyle('$styles', 'display', 'none').'"';
-    } else{
         echo ' style="$styles"';
+    } else{
+        echo ' style="'.\Hyqo\Wire\Utils::addStyle('$styles', 'display', 'none').'"';
     }
 PHP;
             }
