@@ -18,6 +18,16 @@ class WBehavior extends \Hyqo\Wire\Part\Directive
 
             $block->setAttribute('n:wire-behavior', $this->value);
 
+            if ($this->value === 'fetch') {
+                if ($directive = $block->setDirectiveIfNotExists(new WState($block, ''))) {
+                    $directive->process();
+                }
+
+                if ($directive = $block->setDirectiveIfNotExists(new WClass($block, '.fetching?'))) {
+                    $directive->process();
+                }
+            }
+
             if ($this->value === 'form') {
                 if ($directive = $block->setDirectiveIfNotExists(new WState($block, ''))) {
                     $directive->process();
