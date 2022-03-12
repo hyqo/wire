@@ -14,7 +14,7 @@ class WOptions extends \Hyqo\Wire\Part\Directive
     public function process(): void
     {
         $this->addBlockTouch(function (TagBlock $block) {
-            $block->getOrCreateAttribute('n:wire-init')->value = $this->value;
+            $block->getOrCreateAttribute('n:wire-init')->value = 'options: [' . $this->value . ']';
         });
     }
 
