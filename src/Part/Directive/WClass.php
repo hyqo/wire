@@ -41,7 +41,7 @@ class WClass extends \Hyqo\Wire\Part\Directive
 
             foreach (s($this->value)->splitStrictly(',') as $part) {
                 if (!preg_match(
-                    '/^(?P<negative>!|)?(?P<target>#[\w-]+|app|this|)\.(?P<state>[\w\-]+)\?(?P<class>[\w-]*)?$/',
+                    '/^(?P<negative>!|)?(?P<target>#[\w-]+|app|form|this|)\.(?P<state>[\w\-]+)\?(?P<class>[\w-]*)?$/',
                     $part,
                     $matches
                 )) {
@@ -65,14 +65,20 @@ class WClass extends \Hyqo\Wire\Part\Directive
 
                     $condition = [$target, $state, $class, $comparison, null, false];
 
-                    if ($target === 'this') {
+                    if ($target === 'form') {
+                        if (null === $stateful = $block->getClosestStateful('form')) {
+                            $condition[5] = true;
+                        } else {
+                            $condition[4] = $stateful->wire->id;
+                        }
+                    } elseif ($target === 'this') {
                         if (null === $stateful = $block->getClosestStateful()) {
                             $condition[5] = true;
                         } else {
                             $condition[4] = $stateful->wire->id;
                         }
                     } elseif ($target === 'parent') {
-                        if (null === $stateful = $block->getparentStateful()) {
+                        if (null === $stateful = $block->getParentStateful()) {
                             $condition[5] = true;
                         } else {
                             $condition[4] = $stateful->wire->id;
@@ -91,7 +97,6 @@ class WClass extends \Hyqo\Wire\Part\Directive
 
             $block->wire->isLive = true;
 
-
             $backendConditions = $currentClasses;
 
             foreach ($conditions as [$target, $state, $class, $comparison, $stateVar, $onFront]) {
@@ -99,7 +104,7 @@ class WClass extends \Hyqo\Wire\Part\Directive
                     continue;
                 }
 
-                if ($target === 'this' || $target === 'parent') {
+                if ($target === 'form' || $target === 'this' || $target === 'parent') {
                     $backendConditions[] = sprintf(
                         '(%2$s(%1$s[\'state\'][\'%3$s\'] ?? null) ? %4$s)',
                         $stateVar,
@@ -125,6 +130,14 @@ class WClass extends \Hyqo\Wire\Part\Directive
                     } elseif ($onFront) {
                         $data[] = '';
                         $data[] = true;
+                    }
+
+                    if ($class === $state) {
+                        if (count($data) === 3) {
+                            unset($data[2]);
+                        } else {
+                            $data[2] = '';
+                        }
                     }
 
                     return $data;

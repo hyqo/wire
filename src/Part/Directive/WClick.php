@@ -18,5 +18,4 @@ class WClick extends \Hyqo\Wire\Part\Directive
             $block->setAttribute('n:wire-click', $this->value);
         });
     }
-
 }

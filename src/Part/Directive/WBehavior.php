@@ -45,7 +45,11 @@ class WBehavior extends \Hyqo\Wire\Part\Directive
             }
 
             if ($this->value === 'form.button') {
-                if ($directive = $block->setDirectiveIfNotExists(new WClass($block, '.running?'))) {
+                if ($directive = $block->setDirectiveIfNotExists(new WState($block, ''))) {
+                    $directive->process();
+                }
+
+                if ($directive = $block->setDirectiveIfNotExists(new WClass($block, 'form.running?'))) {
                     $directive->process();
                 }
             }

@@ -11,6 +11,7 @@ use Hyqo\Wire\Part\Directive\WClick;
 use Hyqo\Wire\Part\Directive\WModel;
 use Hyqo\Wire\Part\Directive\WOptions;
 use Hyqo\Wire\Part\Directive\WState;
+use Hyqo\Wire\Part\Directive\WSubmit;
 use Hyqo\Wire\Part\Directive\WText;
 use Hyqo\Wire\Part\Directive\WVisible;
 use Hyqo\Wire\Touch;
@@ -68,6 +69,10 @@ abstract class Directive
 
         if ($nodeAttribute->name === 'onclick') {
             return new WClick($block, $nodeAttribute->value);
+        }
+
+        if ($nodeAttribute->name === 'onsubmit') {
+            return new WSubmit($block, $nodeAttribute->value);
         }
 
         return new Fallback($block, $nodeAttribute->value, preg_replace('/^w-/', '', $nodeAttribute->name));

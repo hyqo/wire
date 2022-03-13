@@ -15,6 +15,9 @@ class TagBlock extends Block
     /** @var \DOMNode */
     protected $node;
 
+    /** @var string */
+    public $tagName;
+
     /** @var ?Wire */
     public $wire = null;
 
@@ -36,30 +39,31 @@ class TagBlock extends Block
     public function __construct(\DOMNode $node)
     {
         $this->node = $node;
+        $this->tagName = $node->tagName;
         $this->wire = new Wire();
 
         if ($node instanceof \DOMText) {
             $this->template = $node->wholeText;
-        } elseif (in_array($this->node->tagName, ['input', 'img'])) {
-            $this->template = sprintf('<%1$s%%attributes%%/>', $this->node->tagName);
+        } elseif (in_array($this->tagName, ['input', 'img'])) {
+            $this->template = sprintf('<%1$s%%attributes%%/>', $this->tagName);
         } else {
             $this->template = sprintf(
                 '<%1$s%%attributes%%>%%children%%</%1$s>',
-                $this->node->tagName
+                $this->tagName
             );
         }
     }
 
-    public function getClosestStateful(): ?TagBlock
+    public function getClosestStateful(string $tag = null): ?TagBlock
     {
-        if ($this->wire->isStateful) {
+        if ($this->wire->isStateful  && (null === $tag || $this->tagName === $tag)) {
             return $this;
         }
 
         $block = $this;
 
         while (null !== $parent = $block->getParent()) {
-            if ($parent->wire->isStateful) {
+            if ($parent->wire->isStateful && (null === $tag || $parent->tagName === $tag)) {
                 return $parent;
             }
 
