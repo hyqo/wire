@@ -56,7 +56,7 @@ class TagBlock extends Block
 
     public function getClosestStateful(string $tag = null): ?TagBlock
     {
-        if ($this->wire->isStateful  && (null === $tag || $this->tagName === $tag)) {
+        if ($this->wire->isStateful && (null === $tag || $this->tagName === $tag)) {
             return $this;
         }
 
@@ -163,7 +163,7 @@ class TagBlock extends Block
     public function traverse(): void
     {
         foreach ($this->node->attributes as $nodeAttribute) {
-            if ($nodeAttribute->name === 'onclick' || 0 === strpos($nodeAttribute->name, 'n:w-')) {
+            if (in_array($nodeAttribute->name, ['onclick', 'onsubmit']) || 0 === strpos($nodeAttribute->name, 'n:w-')) {
                 $directive = Directive::from($nodeAttribute, $this);
                 $directive->process();
                 $this->directives[$directive->name] = $directive;

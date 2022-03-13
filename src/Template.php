@@ -61,6 +61,10 @@ class Template
             return $node->htmlNode->macroAttrs['wire-var'] . '[\'click\'] = "' . $node->args . '";';
         });
 
+        $set->addMacro('wire-submit', null, null, function (Latte\MacroNode $node, Latte\PhpWriter $writer) {
+            return $node->htmlNode->macroAttrs['wire-var'] . '[\'submit\'] = "' . $node->args . '";';
+        });
+
         $set->addMacro(
             'wire-text-frontend',
             null,

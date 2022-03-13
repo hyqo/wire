@@ -11,7 +11,7 @@
     <span n:w-class=".foo?"></span>
 </div>
 
-<form n:w-behavior="form" n:w-state="username: 'Oleg'">
+<form n:w-behavior="form" n:w-state="username: 'Oleg'" onsubmit="foo">
     <p n:w-text=".username2"></p>
     <input n:w-behavior="form.field" n:w-visible="parent.foo"/>
     <button n:w-behavior="form.button"></button>
