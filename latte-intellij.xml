@@ -26,6 +26,12 @@
                           name="condition" required="true" repeatable="true"/>
             </arguments>
         </tag>
+        <tag name="w-decorate" type="ATTR_ONLY">
+            <arguments>
+                <argument types="PHP_CONDITION" validType="string"
+                          name="condition" required="true" repeatable="true"/>
+            </arguments>
+        </tag>
         <tag name="w-model" type="ATTR_ONLY">
             <arguments>
                 <argument types="PHP_CONDITION" validType="string"

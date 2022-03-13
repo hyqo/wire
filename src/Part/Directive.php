@@ -2,12 +2,12 @@
 
 namespace Hyqo\Wire\Part;
 
-use Hyqo\Wire\Compiler;
 use Hyqo\Wire\Part\Block\TagBlock;
 use Hyqo\Wire\Part\Directive\Fallback;
 use Hyqo\Wire\Part\Directive\WBehavior;
 use Hyqo\Wire\Part\Directive\WClass;
 use Hyqo\Wire\Part\Directive\WClick;
+use Hyqo\Wire\Part\Directive\WDecorate;
 use Hyqo\Wire\Part\Directive\WModel;
 use Hyqo\Wire\Part\Directive\WOptions;
 use Hyqo\Wire\Part\Directive\WState;
@@ -53,6 +53,7 @@ abstract class Directive
 
         foreach (
             [
+                WDecorate::class,
                 WBehavior::class,
                 WModel::class,
                 WOptions::class,

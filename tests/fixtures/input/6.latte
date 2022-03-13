@@ -13,8 +13,8 @@
 
 <form n:w-behavior="form" n:w-state="username: 'Oleg'" onsubmit="foo">
     <p n:w-text=".username2"></p>
-    <input n:w-behavior="form.field" n:w-visible="parent.foo"/>
-    <button n:w-behavior="form.button"></button>
+    <input n:w-decorate="form.field" n:w-visible="parent.foo"/>
+    <button n:w-decorate="form.button"></button>
 </form>
 
 {include '/sub/sub/2'}
